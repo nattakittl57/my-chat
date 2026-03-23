@@ -1,0 +1,49 @@
+# ========================
+# .NET Backend
+# ========================
+backend/bin/
+backend/obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.vs/
+
+# ========================
+# Frontend (Node / Vite)
+# ========================
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/*.local
+
+# Environment files
+frontend/.env
+frontend/.env.local
+frontend/.env.*.local
+
+# ========================
+# Deploy artifacts
+# ========================
+deploy/
+
+# ========================
+# macOS
+# ========================
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ========================
+# Editor / IDE
+# ========================
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+
+# ========================
+# Logs
+# ========================
+*.log
+npm-debug.log*
