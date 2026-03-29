@@ -196,7 +196,24 @@ interface Conversation {
 VITE_API_URL=http://localhost:5000
 ```
 
----
+### Responsive Design
+
+The layout **must be responsive** across mobile, tablet (iPad), and desktop.
+
+- Desktop (`lg` / ≥1024px): sidebar always visible, fixed `w-64`, part of normal flex flow
+- Mobile & tablet (`< lg`): sidebar hidden off-screen by default; slides in over content as an overlay when toggled
+- `ChatView.vue` owns `sidebarOpen: ref(false)` — passes it as `:open` prop to `ChatSidebar` and listens to `@toggle-sidebar` emit from `ChatWindow`
+- `ChatSidebar.vue` accepts `open: boolean` prop and emits `close` — uses `fixed` positioning with `translate-x` for slide-in/out on small screens (`lg:relative lg:translate-x-0` resets to normal flow on desktop)
+- `ChatWindow.vue` shows a `<header>` with a hamburger `MenuIcon` button only on `lg:hidden` screens; emits `toggleSidebar`
+- Use `lg:hidden` / `lg:relative` / `lg:z-auto` Tailwind breakpoints to switch behaviour; never use a JS media-query listener for this
+
+```vue
+<!-- ChatView.vue minimal pattern -->
+<aside
+  class="fixed inset-y-0 left-0 z-30 w-64 transition-transform duration-300 lg:relative lg:translate-x-0 lg:z-auto"
+  :class="open ? 'translate-x-0' : '-translate-x-full'"
+/>
+```
 
 ## Code Style & Conventions
 

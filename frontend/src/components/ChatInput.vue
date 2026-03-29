@@ -24,7 +24,7 @@ function onKeydown(e: KeyboardEvent) {
 </script>
 
 <template>
-  <div class="border-t border-zinc-700 bg-zinc-900 p-4">
+  <div class="border-t border-zinc-700 bg-zinc-900 p-3 sm:p-4">
     <div class="mx-auto flex max-w-3xl items-end gap-3">
       <Textarea
         v-model="input"

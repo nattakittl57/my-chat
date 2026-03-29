@@ -4,7 +4,10 @@ import { useChatStore } from '@/stores/chat'
 import ChatMessage from '@/components/ChatMessage.vue'
 import ChatInput from '@/components/ChatInput.vue'
 import { ScrollArea } from '@/components/ui/scroll-area'
-import { BotIcon } from 'lucide-vue-next'
+import { Button } from '@/components/ui/button'
+import { BotIcon, MenuIcon } from 'lucide-vue-next'
+
+const emit = defineEmits<{ toggleSidebar: [] }>()
 
 const store = useChatStore()
 const bottomRef = ref<HTMLElement | null>(null)
@@ -28,6 +31,21 @@ watch(
 
 <template>
   <div class="flex flex-1 flex-col overflow-hidden bg-zinc-900">
+    <!-- Mobile / tablet header -->
+    <header class="flex items-center gap-3 border-b border-zinc-700 px-4 py-3 lg:hidden">
+      <Button
+        variant="ghost"
+        size="icon"
+        class="shrink-0 text-zinc-400 hover:text-white"
+        @click="emit('toggleSidebar')"
+      >
+        <MenuIcon class="h-5 w-5" />
+      </Button>
+      <span class="truncate text-sm font-medium text-zinc-300">
+        {{ store.activeConversation?.title ?? 'Chat' }}
+      </span>
+    </header>
+
     <!-- Empty state -->
     <div
       v-if="!store.activeConversation || store.activeConversation.messages.length === 0"

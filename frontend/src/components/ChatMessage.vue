@@ -22,7 +22,7 @@ const props = defineProps<{ message: Message }>()
 
     <!-- Bubble -->
     <div
-      class="max-w-[80%] rounded-2xl px-4 py-3 text-sm leading-relaxed"
+      class="max-w-[85%] sm:max-w-[80%] rounded-2xl px-4 py-3 text-sm leading-relaxed"
       :class="
         props.message.role === 'user' ? 'bg-violet-600 text-white' : 'bg-zinc-700 text-zinc-100'
       "
