@@ -8,6 +8,7 @@ backend/obj/
 *.userosscache
 *.sln.docstates
 .vs/
+backend/appsettings.Development.json
 
 # ========================
 # Frontend (Node / Vite)
