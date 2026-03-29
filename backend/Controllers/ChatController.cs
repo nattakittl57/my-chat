@@ -18,6 +18,7 @@ public class ChatController : ControllerBase
         _chatService = chatService;
     }
 
+    // test git
     [HttpPost]
     public async Task SendMessage([FromBody] ChatRequest request, CancellationToken cancellationToken)
     {
